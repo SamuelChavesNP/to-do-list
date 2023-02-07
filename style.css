@@ -1,0 +1,177 @@
+
+body{
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  background-color: #0c192c;
+  font-family: sans-serif;
+  width: 100vh;
+}
+
+.todo-container{
+  background-color: #030911;
+  color: #fff;
+  box-shadow: 16px 14px 20px #0000008c;
+  max-width: 450px;
+  padding: 1.5rem;
+  border-radius: 10px;
+  margin: 3rem auto;
+  position: relative;
+}
+.todo-container header{
+  text-align: center;
+  padding: 0 1rem 1rem;
+  border-bottom: 1px solid #ff2d75;
+}
+
+#edit-form{
+  border-bottom: 1px solid #ff2d75;
+}
+
+#form{
+  border-bottom: 1px solid #ff2d75;
+  padding-bottom: 1rem;
+}
+
+#form p, #edit-form p{
+  margin-bottom: 0.5rem;
+  font-weight: bold;
+}
+
+.form-control{
+  display: flex;
+}
+.form-control input{
+  margin-right: 0.3rem;
+} 
+
+.cancel-edit{
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+
+button{
+  background-color: #0c192c;
+  border-radius: 6px;
+  color: #4fc3dc;
+  border: 2px solid #ff2d75;
+  padding: .3rem .6rem;
+  font-size: 1rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  transition: .4s;
+}
+
+button:hover{
+  background-color: #0c192c;
+  color: #ff2d75;
+  border-color: #4fc3dc;
+}
+
+input, select{
+  padding: 0.25rem 0.5rem;
+}
+
+.hide{
+  display: none;
+}
+
+#toolbar{
+  padding: 1rem;
+  padding-left: 0;
+  border-bottom: 1px solid #ff2d75;
+  display: flex;
+}
+#toolbar h4{
+  margin-bottom: 0.5rem;
+}
+
+#search{
+  border-right: 1px solid #ff2d75;
+  padding-right: 1rem;
+  margin-right: 1rem;
+  width: 65%;
+  display: flex;
+  flex-direction: column;
+}
+#search form{
+  display: flex;
+}
+#search input{
+  width: 100%;
+  margin-right: 0.3rem;
+}
+
+#filter{
+  width: 35%;
+  display: flex;
+  flex-direction: column;
+}
+#filter select{
+  flex: 1;
+}
+
+.todo{
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 1rem;
+  border-bottom: 1px solid #ff2d75;
+  transition: .3s;
+}
+.todo h3{
+  flex: 1;
+  font-size: 0.9rem;
+}
+.todo button{
+  margin-left: 0.4rem;
+}
+
+.done h3{
+  background-color: burlywood;
+  text-decoration: line-through;
+  font-style: italic;
+}
+
+
+/* BOLHAS */
+
+.container{
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  overflow-y: hidden;
+}
+
+.bubbles {
+  position: relative;
+  display: flex;
+}
+.bubbles span{
+  position: relative;
+  width: 20px;
+  height: 20px;
+  background-color: #4fc3dc;
+  margin: 0 4px;
+  border-radius: 50%;
+  box-shadow: 0 0 0 10px #4fc3dc44, 0 0 50px #4fc3dc, 0 0 100px #4fc3dc;
+  animation: animate 10s linear infinite;
+  animation-duration: calc(125s/ var(--i));
+}
+
+.bubbles span:nth-child(even) {
+  background: #ff2d75;
+  box-shadow: 0 0 0 10px #ff2d7544, 0 0 50px #ff2d75, 0 0 100px #ff2d75;   
+}
+
+@keyframes animate {
+  0% {
+    transform: translateY(100vh) scale(0.1);
+  }
+  100% {
+    transform: translateY(0vh) scale(0.8);
+  }
+}
