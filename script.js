@@ -12,6 +12,7 @@ let oldInputValue;
 const selectFilter = () => {
   const value = select.options[select.selectedIndex].text; 
   // pega o valor do select selecionado
+  let valueFilter;
   valueFilter = value.toLowerCase();
   const todos = document.querySelectorAll('.todo'); 
   if (valueFilter === 'todas'){
@@ -48,6 +49,8 @@ select.addEventListener('change', selectFilter);
 
 
 const updateTodo = (text) => {
+const todos = document.querySelectorAll('.todo');
+
   todos.forEach((todo) => {
     let todoTitle = todo.querySelector('h3');
     
@@ -93,22 +96,28 @@ const saveTodo = (text) => {
   todoList.appendChild(todo); 
   todoInput.value = ""; // após executar a função, limpa o input
   todoInput.focus(); // foca no input novamente 
+
+  const todos = document.querySelectorAll('.todo');
+
  }
 
   
 const filterTask = () => {
+  const todos = document.querySelectorAll('.todo');
   let inputValue = searchInput.value;
     todos.forEach((todo) => {
       // pega o que está escrito em cada todo
-      let filterText = todo.innerText.toLowerCase();
+      let filterText = todo.firstChild.innerText.toLowerCase();
+      
       // pega o que está escrito no SearchInput
       let inputText = inputValue.toLowerCase();
+
       // compara o que está no searchInput com o que está em todos os todo
-      if(!filterText.includes(inputText)){
-        todo.style.display = "none";
+      if(filterText.includes(inputText)){
+        todo.style.display = "flex";  
       }
       else {
-        todo.style.display = "flex";
+        todo.style.display = "none";
       }
      } )
   }
